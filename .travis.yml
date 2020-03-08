@@ -1,0 +1,15 @@
+language: objective-c
+osx_image: xcode61
+before_install:
+  - brew update
+install:
+  - mkdir -p $(brew --repo)/Library/Taps/trinitronx
+  - ln -s $PWD $(brew --repo)/Library/Taps/trinitronx/homebrew-bpm
+  - brew tap --repair
+  - brew tap
+script:
+  - brew cask audit bpm
+  - brew cask install --verbose bpm
+  - /bin/sh -c "[ -e '/Applications/bpm.app/Contents/MacOS/bpm' ]"
+matrix:
+  fast_finish: true
