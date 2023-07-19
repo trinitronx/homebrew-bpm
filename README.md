@@ -21,9 +21,28 @@ point to the new repository URL.
 
 You can do this easily using Homebrew commands:
 
-    brew uninstall --cask bpm
+    brew uninstall --cask --force bpm
     brew untap trinitronx/bpm
     brew tap lyraphase/av-casks
     brew install --cask bpm
+
+### Homebrew Migration Messages
+
+After you run `brew update`, you may see a message like the following:
+
+    ==> bpm has been moved to Homebrew.
+    To uninstall the cask, run:
+      brew uninstall --cask --force bpm
+    ==> Installing bpm...
+    Warning: Cask 'bpm' is already installed.
+    
+    To re-install bpm, run:
+      brew reinstall --cask bpm
+
+While this Cask has **NOT** been moved to Homebrew Core, following the
+suggested commands should not harm anything.  However, you **will** need
+to **tap the new repo first** before reinstalling:
+
+    brew tap lyraphase/av-casks
 
 [1]: https://github.com/LyraPhase/homebrew-av-casks
